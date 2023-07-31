@@ -1,24 +1,23 @@
-# text-based Python program using Pillow package to resize or add text on an image #
+# text-based Python program using Pillow package to resize or add text watermark on an image  #
 
-from PIL import Image, ImageDraw, ImageFont, ImageColor
-
-FONT = ImageFont.truetype("C:\Windows\Fonts\BRLNSB.TTF", size=40)
-RED = (247, 15, 15)
+import PIL.Image
+from PIL import ImageDraw, ImageColor, ImageFont
 
 
 def add_text():
     my_text = input("Enter the text\n")
     entered_color = input("Enter the text color\n")
     text_color = ImageColor.getrgb(entered_color)
-    img = Image.open(file_path)
+    img = PIL.Image.open(file_path)
     draw = ImageDraw.Draw(img)
-    draw.text((28, 36), text=my_text, fill=text_color, font=FONT)
+    font = ImageFont.truetype("arial.ttf", 40)
+    draw.text((28, 36), text=my_text, fill=text_color, font=font)
     img.save(f"images/image.{image_format}")
     img.show()
 
 
 def resize_image():
-    img = Image.open(file_path)
+    img = PIL.Image.open(file_path)
     original_width = img.width
     original_height = img.height
     print(f"Current width is {original_width} and current height is {original_height}")
@@ -36,3 +35,6 @@ if action == "resize":
     resize_image()
 elif action == "text":
     add_text()
+
+
+
