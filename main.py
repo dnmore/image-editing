@@ -37,7 +37,7 @@ def convert_grayscale():
 
 window = Tk()
 window.title("Image Editing App")
-window.geometry("600x800")
+window.geometry("600x600")
 white = Label(window, bg='white', width=600, height=600, border=0)
 white.pack()
 
